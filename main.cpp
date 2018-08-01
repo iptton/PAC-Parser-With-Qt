@@ -12,7 +12,7 @@ QString getContent(const QString& url){
     qDebug()<<"url"<<url;
     QTimer timer;
     QEventLoop _loop;
-    timer.singleShot(10000,&_loop,SLOT(quit()));//5秒内
+    timer.singleShot(10000,&_loop,SLOT(quit()));
     QNetworkProxyFactory::setUseSystemConfiguration(true);
     manager.connect(&manager,SIGNAL(finished(QNetworkReply*)),&_loop,SLOT(quit()));
     QNetworkReply *reply = manager.get(QNetworkRequest(QUrl(url)));
